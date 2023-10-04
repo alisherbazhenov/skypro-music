@@ -55,7 +55,7 @@ body {
 
 .container {
 	max-width: 1920px;
-	height: 100vh;
+	/* height: 100vh; */
 	margin: 0 auto;
 	position: relative;
 	background-color: #181818;
@@ -99,8 +99,8 @@ body {
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
-	-ms-flex-wrap: wrap;
-	flex-wrap: wrap;
+	-ms-flex-wrap: nowrap;
+	flex-wrap: nowrap;
 	-webkit-box-pack: justify;
 	-ms-flex-pack: justify;
 	justify-content: space-between;
