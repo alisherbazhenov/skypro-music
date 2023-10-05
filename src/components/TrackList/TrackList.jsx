@@ -1,5 +1,6 @@
-import Track from './Track'
-import Searchblock from './Searchblock'
+import Track from '../Track/Track'
+import Searchblock from '../Searchblock/Searchblock'
+import './styles.css'
 
 function TrackList() {
 	return (

@@ -1,3 +1,5 @@
+import './styles.css'
+
 function Track() {
 	return (
 		<div className="playlist__item">

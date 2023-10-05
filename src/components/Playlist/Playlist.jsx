@@ -1,3 +1,5 @@
+import './styles.css'
+
 function Playlist() {
 	return (
 		<div className="sidebar__item">

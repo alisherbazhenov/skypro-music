@@ -1,4 +1,5 @@
-import Playlist from './Playlist'
+import Playlist from '../Playlist/Playlist'
+import './styles.css'
 
 function SideBar() {
 	return (
