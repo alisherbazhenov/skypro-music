@@ -28,7 +28,7 @@ function TrackList() {
 				</div>
 				<div className="content__playlist playlist">
 					<Track />
-					<div className="playlist__item">
+					{/* <div className="playlist__item">
 						<div className="playlist__track track">
 							<div className="track__title">
 								<div className="track__title-image">
@@ -568,7 +568,7 @@ function TrackList() {
 								<span className="track__time-text" />
 							</div>
 						</div>
-					</div>
+					</div> */}
 				</div>
 			</div>
 		</div>
