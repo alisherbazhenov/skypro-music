@@ -11,7 +11,7 @@ function AudioPlayer() {
 				.then((res) => res.json())
 				.then((json) => setPlayer(json[10]))
 		}, 5000)
-	})
+	}, [])
 
 	return (
 		<div className="bar">

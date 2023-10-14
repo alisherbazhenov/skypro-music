@@ -6,23 +6,13 @@ import { useEffect, useState } from 'react'
 function Track() {
 	const [tracks, setTrack] = useState(null)
 
-	// useEffect(() => {
-	// 	setTimeout(async () => {
-	// 		const res = await fetch(
-	// 			'https://skypro-music-api.skyeng.tech/catalog/track/all/',
-	// 		)
-	// 		const data = await res.json()
-	// 		setTrack(data)
-	// 	}, 5000)
-	// }, [])
-
 	useEffect(() => {
 		setTimeout(() => {
 			fetch('https://skypro-music-api.skyeng.tech/catalog/track/all/')
 				.then((res) => res.json())
 				.then((json) => setTrack(json))
 		}, 5000)
-	})
+	}, [])
 
 	return (
 		<>

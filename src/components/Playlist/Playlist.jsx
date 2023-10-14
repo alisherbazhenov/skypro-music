@@ -6,23 +6,13 @@ import SkeletonSelections from '../sceletons/SkeletonSelections.js'
 function Playlist() {
 	const [selections, setSelection] = useState(null)
 
-	// useEffect(() => {
-	// 	setTimeout(async () => {
-	// 		const res = await fetch(
-	// 			'https://skypro-music-api.skyeng.tech/catalog/selection/',
-	// 		)
-	// 		const data = await res.json()
-	// 		setSelection(data)
-	// 	}, 5000)
-	// }, [])
-
 	useEffect(() => {
 		setTimeout(() => {
 			fetch('https://skypro-music-api.skyeng.tech/catalog/selection/')
 				.then((res) => res.json())
 				.then((json) => setSelection(json))
 		}, 5000)
-	})
+	}, [])
 
 	return (
 		<>
