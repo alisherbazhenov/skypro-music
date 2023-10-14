@@ -1,6 +1,18 @@
 import './styles.css'
+import { useEffect, useState } from 'react'
+import SkeletonPlayer from '../sceletons/SkeletonPlayer'
 
 function AudioPlayer() {
+	const [player, setPlayer] = useState(null)
+
+	useEffect(() => {
+		setTimeout(() => {
+			fetch('https://skypro-music-api.skyeng.tech/catalog/track/all/')
+				.then((res) => res.json())
+				.then((json) => setPlayer(json[10]))
+		}, 5000)
+	})
+
 	return (
 		<div className="bar">
 			<div className="bar__content">
@@ -36,23 +48,26 @@ function AudioPlayer() {
 						</div>
 
 						<div className="player__track-play track-play">
-							<div className="track-play__contain">
-								<div className="track-play__image">
-									<svg className="track-play__svg" alt="music">
-										<use xlinkHref="img/icon/sprite.svg#icon-note" />
-									</svg>
+							{player && (
+								<div className="track-play__contain" key={player.id}>
+									<div className="track-play__image">
+										<svg className="track-play__svg" alt="music">
+											<use xlinkHref="img/icon/sprite.svg#icon-note" />
+										</svg>
+									</div>
+									<div className="track-play__author">
+										<a className="track-play__author-link" href="http://">
+											{player.name}
+										</a>
+									</div>
+									<div className="track-play__album">
+										<a className="track-play__album-link" href="http://">
+											{player.author}
+										</a>
+									</div>
 								</div>
-								<div className="track-play__author">
-									<a className="track-play__author-link" href="http://">
-										Ты та...
-									</a>
-								</div>
-								<div className="track-play__album">
-									<a className="track-play__album-link" href="http://">
-										Баста
-									</a>
-								</div>
-							</div>
+							)}
+							{!player && [1].map((n) => <SkeletonPlayer key={n} />)}
 
 							<div className="track-play__like-dis">
 								<div className="track-play__like _btn-icon">

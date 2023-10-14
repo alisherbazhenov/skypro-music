@@ -232,3 +232,59 @@
 	text-align: right;
 	color: #696969;
 }
+
+/* search__block Author name */
+.search__block-1 {
+	position: relative;
+}
+
+.search__block-2 {
+	position: relative;
+}
+
+.search__block-3 {
+	position: relative;
+}
+
+.author__list,
+.date__list,
+.genre__list {
+	width: 250px;
+	height: 305px;
+	position: absolute;
+	padding: 34px;
+	display: inline-flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 10px;
+	border-radius: 12px;
+	background: #313131;
+	top: 45px;
+	overflow: scroll;
+	opacity: 0;
+	transform: translateY(-10px);
+	visibility: hidden;
+	transition: 0.3s;
+}
+
+.author__list.active,
+.date__list.active,
+.genre__list.active {
+	transform: translateY(0);
+	opacity: 1;
+	visibility: visible;
+}
+
+.author__link,
+.date__link,
+.genre__link {
+	color: #fff;
+	transition: 0.3s;
+}
+
+.author__link:hover,
+.date__link:hover,
+.genre__link:hover {
+	color: #b672ff;
+	border-bottom: 1px solid #b672ff;
+}
