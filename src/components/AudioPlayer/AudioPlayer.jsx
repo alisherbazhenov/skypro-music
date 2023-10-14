@@ -67,7 +67,7 @@ function AudioPlayer() {
 									</div>
 								</div>
 							)}
-							{!player && [1].map((n) => <SkeletonPlayer key={n} />)}
+							{!player && <SkeletonPlayer />}
 
 							<div className="track-play__like-dis">
 								<div className="track-play__like _btn-icon">
