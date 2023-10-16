@@ -14,6 +14,10 @@ function Track() {
 		}, 5000)
 	}, [])
 
+	// if (!tracks) {
+	// 	return !tracks && [...Array(25)].map((n) => <SkeletonTracks key={n} />)
+	// }
+
 	return (
 		<>
 			{tracks &&

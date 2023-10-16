@@ -9,17 +9,38 @@ function TrackList() {
 	const [isOpenDate, setOpenDate] = useState(false)
 	const [isOpenGenre, setOpenGenre] = useState(false)
 
-	useEffect(() => {
-		const handler = (e) => {
-			if (e.target) {
-				setOpenAuthor(false)
-				setOpenDate(false)
-				setOpenGenre(false)
-			}
-		}
+	// useEffect(() => {
+	// 	const handler = (e) => {
+	// 		if (e.target) {
+	// 			setOpenAuthor(false)
+	// 			setOpenDate(false)
+	// 			setOpenGenre(false)
+	// 		}
+	// 	}
 
-		document.addEventListener('mousedown', handler)
-	})
+	// 	document.addEventListener('mousedown', handler)
+	// })
+
+	function handleClickAuthor() {
+		setOpenAuthor((isOpenAuthor) => !isOpenAuthor)
+	}
+
+	function handleClickDate() {
+		setOpenDate(!isOpenDate)
+	}
+
+	function handleClickGenre() {
+		setOpenGenre(!isOpenGenre)
+	}
+
+	let toggleClassCheckAuthor = isOpenAuthor ? 'color-active' : ''
+	let toggleClassCheckAuthorMenu = isOpenAuthor ? 'active' : ''
+
+	let toggleClassCheckDate = isOpenDate ? 'color-active' : ''
+	let toggleClassCheckDateMenu = isOpenDate ? 'active' : ''
+
+	let toggleClassCheckGenre = isOpenGenre ? 'color-active' : ''
+	let toggleClassCheckGenreMenu = isOpenGenre ? 'active' : ''
 
 	return (
 		<div className="main__centerblock centerblock">
@@ -29,12 +50,12 @@ function TrackList() {
 				<div className="filter__title">Искать по:</div>
 				<div className="search__block-1">
 					<div
-						className="filter__button button-author _btn-text"
-						onClick={() => setOpenAuthor(!isOpenAuthor)}
+						className={`filter__button button-author _btn-text ${toggleClassCheckAuthor}`}
+						onClick={() => handleClickAuthor()}
 					>
 						исполнителю
 					</div>
-					<ul className={`author__list ${isOpenAuthor ? 'active' : ''}`}>
+					<ul className={`author__list ${toggleClassCheckAuthorMenu}`}>
 						<li className="author__item">
 							<a className="author__link" href="#">
 								Alexander Nakarada
@@ -75,12 +96,12 @@ function TrackList() {
 
 				<div className="search__block-2">
 					<div
-						className="filter__button button-year _btn-text"
-						onClick={() => setOpenDate(!isOpenDate)}
+						className={`filter__button button-year _btn-text ${toggleClassCheckDate}`}
+						onClick={() => handleClickDate()}
 					>
 						году выпуска
 					</div>
-					<ul className={`date__list ${isOpenDate ? 'active' : ''}`}>
+					<ul className={`date__list ${toggleClassCheckDateMenu}`}>
 						<li className="date__item">
 							<a className="date__link" href="#">
 								1980
@@ -121,12 +142,12 @@ function TrackList() {
 
 				<div className="search__block-3">
 					<div
-						className="filter__button button-genre _btn-text"
-						onClick={() => setOpenGenre(!isOpenGenre)}
+						className={`filter__button button-genre _btn-text ${toggleClassCheckGenre}`}
+						onClick={() => handleClickGenre()}
 					>
 						жанру
 					</div>
-					<ul className={`genre__list ${isOpenGenre ? 'active' : ''}`}>
+					<ul className={`genre__list ${toggleClassCheckGenreMenu}`}>
 						<li className="genre__item">
 							<a className="genre__link" href="#">
 								Хип-Хоп

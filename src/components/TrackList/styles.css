@@ -288,3 +288,8 @@
 	color: #b672ff;
 	border-bottom: 1px solid #b672ff;
 }
+
+.color-active {
+	border-color: #ad61ff;
+	color: #ad61ff;
+}
