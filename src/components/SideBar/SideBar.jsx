@@ -1,23 +1,24 @@
+/* eslint-disable */
 import Playlist from '../Playlist/Playlist'
-import './styles.css'
+import * as S from './SideBar.styles'
 
 function SideBar() {
 	return (
-		<div className="main__sidebar sidebar">
-			<div className="sidebar__personal">
-				<p className="sidebar__personal-name">Sergey.Ivanov</p>
-				<div className="sidebar__icon">
+		<S.MainSideBar>
+			<S.Personal>
+				<S.PersonalName>Sergey.Ivanov</S.PersonalName>
+				<S.SideBarIcon>
 					<svg alt="logout">
 						<use xlinkHref="img/icon/sprite.svg#logout" />
 					</svg>
-				</div>
-			</div>
-			<div className="sidebar__block">
-				<div className="sidebar__list">
+				</S.SideBarIcon>
+			</S.Personal>
+			<S.SideBarBlock>
+				<S.SideBarList>
 					<Playlist />
-				</div>
-			</div>
-		</div>
+				</S.SideBarList>
+			</S.SideBarBlock>
+		</S.MainSideBar>
 	)
 }
 

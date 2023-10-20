@@ -1,6 +1,5 @@
-/* eslint-disable */
-import './styles.css'
 import React from 'react'
+import * as S from './Nav.styles'
 
 const { useState } = React
 
@@ -9,38 +8,32 @@ function Nav() {
 	const toggleVisibility = () => setVisible(!visible)
 
 	return (
-		<nav className="main__nav nav">
-			<div className="nav__logo logo">
-				<img className="logo__image" src="img/logo.png" alt="logo" />
-			</div>
-			<div className="nav__burger burger" onClick={toggleVisibility}>
-				<span className="burger__line" />
-				<span className="burger__line" />
-				<span className="burger__line" />
-			</div>
+		<S.Nav>
+			<S.NavLogo>
+				<S.LogoImage src="img/logo.png" alt="logo" />
+			</S.NavLogo>
+			<S.NavBurger onClick={toggleVisibility}>
+				<S.BurgerLine />
+				<S.BurgerLine />
+				<S.BurgerLine />
+			</S.NavBurger>
 
-			<div className="nav__menu menu">
+			<S.NavMenu>
 				{visible && (
-					<ul className="menu__list">
-						<li className="menu__item">
-							<a href="index.html" className="menu__link">
-								Главное
-							</a>
-						</li>
-						<li className="menu__item">
-							<a href="index.html" className="menu__link">
-								Мой плейлист
-							</a>
-						</li>
-						<li className="menu__item">
-							<a href="../signin.html" className="menu__link">
-								Войти
-							</a>
-						</li>
-					</ul>
+					<S.MenuList>
+						<S.MenuItem>
+							<S.MenuLink href="index.html">Главное</S.MenuLink>
+						</S.MenuItem>
+						<S.MenuItem>
+							<S.MenuLink href="index.html">Мой плейлист</S.MenuLink>
+						</S.MenuItem>
+						<S.MenuItem>
+							<S.MenuLink href="../signin.html">Войти</S.MenuLink>
+						</S.MenuItem>
+					</S.MenuList>
 				)}
-			</div>
-		</nav>
+			</S.NavMenu>
+		</S.Nav>
 	)
 }
 
