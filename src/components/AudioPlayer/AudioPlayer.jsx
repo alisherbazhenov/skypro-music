@@ -1,6 +1,94 @@
-import './styles.css'
 import { useEffect, useState } from 'react'
+import './styles.css'
+import styled from 'styled-components'
 import SkeletonPlayer from '../sceletons/SkeletonPlayer'
+
+const StyledBar = styled.div`
+	position: sticky;
+	min-height: 2em;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	background: rgba(28, 28, 28, 0.5);
+`
+const StyledBarContent = styled.div`
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: column;
+	flex-direction: column;
+`
+const StyledPlayerProgress = styled.div`
+	width: 100%;
+	height: 5px;
+	background: #2e2e2e;
+`
+const StyledPlayerBlock = styled.div`
+	height: 73px;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: row;
+	flex-direction: row;
+	-webkit-box-pack: justify;
+	-ms-flex-pack: justify;
+	justify-content: space-between;
+`
+const StyledBarPlayer = styled.div`
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: row;
+	flex-direction: row;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-box-pack: start;
+	-ms-flex-pack: start;
+	justify-content: flex-start;
+`
+const StyledVolumeBlock = styled.div`
+	width: auto;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	padding: 0 92px 0 0;
+`
+const StyledVolumeContent = styled.div`
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: row;
+	flex-direction: row;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-box-pack: flex-end;
+	-ms-flex-pack: flex-end;
+	justify-content: flex-end;
+`
+const StyledVolumeImage = styled.div`
+	width: 13px;
+	height: 18px;
+	margin-right: 17px;
+`
+const StyledVolumeImageSvg = styled.svg`
+	width: 13px;
+	height: 18px;
+	fill: transparent;
+`
+// const StyledBar = styled.div``
 
 function AudioPlayer() {
 	const [player, setPlayer] = useState(null)
@@ -14,11 +102,11 @@ function AudioPlayer() {
 	}, [])
 
 	return (
-		<div className="bar">
-			<div className="bar__content">
-				<div className="bar__player-progress" />
-				<div className="bar__player-block">
-					<div className="bar__player player">
+		<StyledBar>
+			<StyledBarContent>
+				<StyledPlayerProgress />
+				<StyledPlayerBlock>
+					<StyledBarPlayer>
 						<div className="player__controls">
 							<div className="player__btn-prev">
 								<svg className="player__btn-prev-svg" alt="prev">
@@ -82,14 +170,14 @@ function AudioPlayer() {
 								</div>
 							</div>
 						</div>
-					</div>
-					<div className="bar__volume-block volume">
-						<div className="volume__content">
-							<div className="volume__image">
-								<svg className="volume__svg" alt="volume">
+					</StyledBarPlayer>
+					<StyledVolumeBlock>
+						<StyledVolumeContent>
+							<StyledVolumeImage>
+								<StyledVolumeImageSvg alt="volume">
 									<use xlinkHref="img/icon/sprite.svg#icon-volume" />
-								</svg>
-							</div>
+								</StyledVolumeImageSvg>
+							</StyledVolumeImage>
 							<div className="volume__progress _btn">
 								<input
 									className="volume__progress-line _btn"
@@ -97,11 +185,11 @@ function AudioPlayer() {
 									name="range"
 								/>
 							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+						</StyledVolumeContent>
+					</StyledVolumeBlock>
+				</StyledPlayerBlock>
+			</StyledBarContent>
+		</StyledBar>
 	)
 }
 

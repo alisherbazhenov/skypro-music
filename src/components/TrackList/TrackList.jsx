@@ -9,6 +9,8 @@ function TrackList() {
 	const [isOpenDate, setOpenDate] = useState(false)
 	const [isOpenGenre, setOpenGenre] = useState(false)
 
+	const [activeFilter, setActiveFilter] = useState(null)
+
 	// useEffect(() => {
 	// 	const handler = (e) => {
 	// 		if (e.target) {
@@ -55,43 +57,45 @@ function TrackList() {
 					>
 						исполнителю
 					</div>
-					<ul className={`author__list ${toggleClassCheckAuthorMenu}`}>
-						<li className="author__item">
-							<a className="author__link" href="#">
-								Alexander Nakarada
-							</a>
-						</li>
-						<li className="author__item">
-							<a className="author__link" href="#">
-								Frank Schroter
-							</a>
-						</li>
-						<li className="author__item">
-							<a className="author__link" href="#">
-								Kevin Macleod
-							</a>
-						</li>
-						<li className="author__item">
-							<a className="author__link" href="#">
-								Mixkit
-							</a>
-						</li>
-						<li className="author__item">
-							<a className="author__link" href="#">
-								Баста
-							</a>
-						</li>
-						<li className="author__item">
-							<a className="author__link" href="#">
-								Егор Крид
-							</a>
-						</li>
-						<li className="author__item">
-							<a className="author__link" href="#">
-								МОТ
-							</a>
-						</li>
-					</ul>
+					{activeFilter === 'author' && (
+						<ul className="author__list">
+							<li className="author__item">
+								<a className="author__link" href="#">
+									Alexander Nakarada
+								</a>
+							</li>
+							<li className="author__item">
+								<a className="author__link" href="#">
+									Frank Schroter
+								</a>
+							</li>
+							<li className="author__item">
+								<a className="author__link" href="#">
+									Kevin Macleod
+								</a>
+							</li>
+							<li className="author__item">
+								<a className="author__link" href="#">
+									Mixkit
+								</a>
+							</li>
+							<li className="author__item">
+								<a className="author__link" href="#">
+									Баста
+								</a>
+							</li>
+							<li className="author__item">
+								<a className="author__link" href="#">
+									Егор Крид
+								</a>
+							</li>
+							<li className="author__item">
+								<a className="author__link" href="#">
+									МОТ
+								</a>
+							</li>
+						</ul>
+					)}
 				</div>
 
 				<div className="search__block-2">

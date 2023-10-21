@@ -19,7 +19,7 @@ function Playlist() {
 			{selections &&
 				selections.map((selection) => (
 					<S.PlayListItem key={selection.id}>
-						<S.PlayListLink href="index.html">
+						<S.PlayListLink href="#">
 							<S.PlayListImage src="img/playlist01.png" alt="day's playlist" />
 						</S.PlayListLink>
 					</S.PlayListItem>

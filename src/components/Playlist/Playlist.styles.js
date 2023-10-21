@@ -1,4 +1,3 @@
-/* eslint-disable */
 import styled from 'styled-components'
 
 export const PlayListItem = styled.div`
@@ -9,7 +8,7 @@ export const PlayListItem = styled.div`
 	}
 `
 
-export const PlayListLink = styled.div`
+export const PlayListLink = styled.a`
 	width: 100%;
 	height: 100%;
 `
