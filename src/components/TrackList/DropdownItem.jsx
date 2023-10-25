@@ -1,14 +1,11 @@
 /* eslint-disable */
-
-import './styles.css'
+import * as S from './DropdownItem.styles'
 
 function DropdownItem(props) {
 	return (
-		<li className="dropdown__item">
-			<a className="dropdown__link" href="#">
-				{props.textLink}
-			</a>
-		</li>
+		<S.DropdownItem>
+			<S.DropdownLink href="#">{props.textLink}</S.DropdownLink>
+		</S.DropdownItem>
 	)
 }
 
