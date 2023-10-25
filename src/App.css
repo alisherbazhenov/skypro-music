@@ -47,25 +47,15 @@ body {
 }
 
 .wrapper {
-	width: 100%;
-	min-height: 100%;
-	overflow: scroll;
-	background-color: #383838;
-	overflow-x: hidden;
 }
 
 .container {
-	max-width: 1920px;
-	/* height: 100vh; */
-	margin: 0 auto;
-	position: relative;
-	background-color: #181818;
 }
 
 ._btn-text:hover {
-	border-color: #d9b6ff;
+	/* border-color: #d9b6ff;
 	color: #d9b6ff;
-	cursor: pointer;
+	cursor: pointer; */
 }
 
 ._btn-icon:hover svg {
@@ -94,17 +84,6 @@ body {
 }
 
 .main {
-	-webkit-box-flex: 1;
-	-ms-flex: 1 1 auto;
-	flex: 1 1 auto;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-ms-flex-wrap: nowrap;
-	flex-wrap: nowrap;
-	-webkit-box-pack: justify;
-	-ms-flex-pack: justify;
-	justify-content: space-between;
 }
 
 /* .main__nav {

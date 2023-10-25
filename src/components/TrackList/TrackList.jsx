@@ -2,210 +2,180 @@
 import Track from '../Track/Track'
 import Searchblock from '../Searchblock/Searchblock'
 import './styles.css'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
+import DateListFilter from './DateListFilter'
+import AuthorListFilter from './AuthorListFilter'
+import GenreListFilter from './GenreListFilter'
+import BtnFilter from './BtnFilter'
+import styled from 'styled-components'
+
+const StyledMainCenterBlock = styled.div`
+	width: auto;
+	-webkit-box-flex: 3;
+	-ms-flex-positive: 3;
+	flex-grow: 3;
+	padding: 20px 40px 20px 111px;
+`
+const StyledCenterBlockH2 = styled.h2`
+	font-style: normal;
+	font-weight: 400;
+	font-size: 64px;
+	line-height: 72px;
+	letter-spacing: -0.8px;
+	margin-bottom: 45px;
+`
+const StyledCenterBlockFilter = styled.div`
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: row;
+	flex-direction: row;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	margin-bottom: 51px;
+`
+const StyledFilterTitle = styled.div`
+	font-style: normal;
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 24px;
+	margin-right: 15px;
+`
+const StyledFilterBlock = styled.div`
+	position: relative;
+`
+const StyledCenterBlockContent = styled.div`
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: column;
+	flex-direction: column;
+`
+const StyledContentTitle = styled.div`
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: row;
+	flex-direction: row;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-box-pack: justify;
+	-ms-flex-pack: justify;
+	justify-content: space-between;
+	margin-bottom: 24px;
+`
+const StyledPlaylistTitleCol = styled.div`
+	font-style: normal;
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 24px;
+	letter-spacing: 2px;
+	color: #696969;
+	text-transform: uppercase;
+`
+const StyledTitleCol01 = styled(StyledPlaylistTitleCol)`
+	width: 447px;
+`
+const StyledTitleCol02 = styled(StyledPlaylistTitleCol)`
+	width: 321px;
+`
+const StyledTitleCol03 = styled(StyledPlaylistTitleCol)`
+	width: 245px;
+`
+const StyledTitleCol04 = styled(StyledPlaylistTitleCol)`
+	width: 60px;
+	text-align: flex-end;
+`
+const StyledPlaylistSvg = styled.svg`
+	width: 12px;
+	height: 12px;
+	fill: transparent;
+	stroke: #696969;
+`
+const StyledContentPlaylist = styled.div`
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	overflow-y: auto;
+`
 
 function TrackList() {
-	const [isOpenAuthor, setOpenAuthor] = useState(false)
-	const [isOpenDate, setOpenDate] = useState(false)
-	const [isOpenGenre, setOpenGenre] = useState(false)
-
 	const [activeFilter, setActiveFilter] = useState(null)
 
-	// useEffect(() => {
-	// 	const handler = (e) => {
-	// 		if (e.target) {
-	// 			setOpenAuthor(false)
-	// 			setOpenDate(false)
-	// 			setOpenGenre(false)
-	// 		}
-	// 	}
-
-	// 	document.addEventListener('mousedown', handler)
-	// })
-
-	function handleClickAuthor() {
-		setOpenAuthor((isOpenAuthor) => !isOpenAuthor)
-	}
-
-	function handleClickDate() {
-		setOpenDate(!isOpenDate)
-	}
-
-	function handleClickGenre() {
-		setOpenGenre(!isOpenGenre)
-	}
-
-	let toggleClassCheckAuthor = isOpenAuthor ? 'color-active' : ''
-	let toggleClassCheckAuthorMenu = isOpenAuthor ? 'active' : ''
-
-	let toggleClassCheckDate = isOpenDate ? 'color-active' : ''
-	let toggleClassCheckDateMenu = isOpenDate ? 'active' : ''
-
-	let toggleClassCheckGenre = isOpenGenre ? 'color-active' : ''
-	let toggleClassCheckGenreMenu = isOpenGenre ? 'active' : ''
-
 	return (
-		<div className="main__centerblock centerblock">
+		<StyledMainCenterBlock>
 			<Searchblock />
-			<h2 className="centerblock__h2">Трек</h2>
-			<div className="centerblock__filter filter">
-				<div className="filter__title">Искать по:</div>
-				<div className="search__block-1">
-					<div
-						className={`filter__button button-author _btn-text ${toggleClassCheckAuthor}`}
-						onClick={() => handleClickAuthor()}
-					>
-						исполнителю
-					</div>
-					{activeFilter === 'author' && (
-						<ul className="author__list">
-							<li className="author__item">
-								<a className="author__link" href="#">
-									Alexander Nakarada
-								</a>
-							</li>
-							<li className="author__item">
-								<a className="author__link" href="#">
-									Frank Schroter
-								</a>
-							</li>
-							<li className="author__item">
-								<a className="author__link" href="#">
-									Kevin Macleod
-								</a>
-							</li>
-							<li className="author__item">
-								<a className="author__link" href="#">
-									Mixkit
-								</a>
-							</li>
-							<li className="author__item">
-								<a className="author__link" href="#">
-									Баста
-								</a>
-							</li>
-							<li className="author__item">
-								<a className="author__link" href="#">
-									Егор Крид
-								</a>
-							</li>
-							<li className="author__item">
-								<a className="author__link" href="#">
-									МОТ
-								</a>
-							</li>
-						</ul>
-					)}
-				</div>
-
-				<div className="search__block-2">
-					<div
-						className={`filter__button button-year _btn-text ${toggleClassCheckDate}`}
-						onClick={() => handleClickDate()}
-					>
-						году выпуска
-					</div>
-					<ul className={`date__list ${toggleClassCheckDateMenu}`}>
-						<li className="date__item">
-							<a className="date__link" href="#">
-								1980
-							</a>
-						</li>
-						<li className="date__item">
-							<a className="date__link" href="#">
-								1970
-							</a>
-						</li>
-						<li className="date__item">
-							<a className="date__link" href="#">
-								1990
-							</a>
-						</li>
-						<li className="date__item">
-							<a className="date__link" href="#">
-								2000
-							</a>
-						</li>
-						<li className="date__item">
-							<a className="date__link" href="#">
-								2010
-							</a>
-						</li>
-						<li className="date__item">
-							<a className="date__link" href="#">
-								2020
-							</a>
-						</li>
-						<li className="date__item">
-							<a className="date__link" href="#">
-								1960-1970
-							</a>
-						</li>
-					</ul>
-				</div>
-
-				<div className="search__block-3">
-					<div
-						className={`filter__button button-genre _btn-text ${toggleClassCheckGenre}`}
-						onClick={() => handleClickGenre()}
-					>
-						жанру
-					</div>
-					<ul className={`genre__list ${toggleClassCheckGenreMenu}`}>
-						<li className="genre__item">
-							<a className="genre__link" href="#">
-								Хип-Хоп
-							</a>
-						</li>
-						<li className="genre__item">
-							<a className="genre__link" href="#">
-								Поп-музыка
-							</a>
-						</li>
-						<li className="genre__item">
-							<a className="genre__link" href="#">
-								Инди
-							</a>
-						</li>
-						<li className="genre__item">
-							<a className="genre__link" href="#">
-								Электро
-							</a>
-						</li>
-						<li className="genre__item">
-							<a className="genre__link" href="#">
-								Техно
-							</a>
-						</li>
-						<li className="genre__item">
-							<a className="genre__link" href="#">
-								Классическая
-							</a>
-						</li>
-						<li className="genre__item">
-							<a className="genre__link" href="#">
-								Рок
-							</a>
-						</li>
-					</ul>
-				</div>
-			</div>
-			<div className="centerblock__content">
-				<div className="content__title playlist-title">
-					<div className="playlist-title__col col01">Трек</div>
-					<div className="playlist-title__col col02">ИСПОЛНИТЕЛЬ</div>
-					<div className="playlist-title__col col03">АЛЬБОМ</div>
-					<div className="playlist-title__col col04">
-						<svg className="playlist-title__svg" alt="time">
+			<StyledCenterBlockH2>Трек</StyledCenterBlockH2>
+			<StyledCenterBlockFilter>
+				<StyledFilterTitle>Искать по:</StyledFilterTitle>
+				<StyledFilterBlock
+					onClick={() => {
+						setActiveFilter('author')
+						if (activeFilter) {
+							setActiveFilter(null)
+						}
+					}}
+				>
+					<BtnFilter
+						isActive={activeFilter === 'author'}
+						title={'исполнителю'}
+					/>
+					{activeFilter === 'author' && <AuthorListFilter />}
+				</StyledFilterBlock>
+				<StyledFilterBlock
+					onClick={() => {
+						setActiveFilter('genre')
+						if (activeFilter) {
+							setActiveFilter(null)
+						}
+					}}
+				>
+					<BtnFilter isActive={activeFilter === 'genre'} title={'жанру'} />
+					{activeFilter === 'genre' && <GenreListFilter />}
+				</StyledFilterBlock>
+				<StyledFilterBlock
+					onClick={() => {
+						setActiveFilter('date')
+						if (activeFilter) {
+							setActiveFilter(null)
+						}
+					}}
+				>
+					<BtnFilter
+						isActive={activeFilter === 'date'}
+						title={'году выпуска'}
+					/>
+					{activeFilter === 'date' && <DateListFilter />}
+				</StyledFilterBlock>
+			</StyledCenterBlockFilter>
+			<StyledCenterBlockContent>
+				<StyledContentTitle>
+					<StyledTitleCol01>Трек</StyledTitleCol01>
+					<StyledTitleCol02>ИСПОЛНИТЕЛЬ</StyledTitleCol02>
+					<StyledTitleCol03>АЛЬБОМ</StyledTitleCol03>
+					<StyledTitleCol04>
+						<StyledPlaylistSvg alt="time">
 							<use xlinkHref="./img/icon/sprite.svg#icon-watch" />
-						</svg>
-					</div>
-				</div>
-				<div className="content__playlist playlist">
+						</StyledPlaylistSvg>
+					</StyledTitleCol04>
+				</StyledContentTitle>
+				<StyledContentPlaylist>
 					<Track />
-				</div>
-			</div>
-		</div>
+				</StyledContentPlaylist>
+			</StyledCenterBlockContent>
+		</StyledMainCenterBlock>
 	)
 }
 
